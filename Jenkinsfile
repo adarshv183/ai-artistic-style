@@ -32,7 +32,7 @@ pipeline {
                 script {
                     sh '''
                     sleep 5
-                    curl -X POST http://172.20.0.2:5001/styleTransfer -F "image=@image.jpg" --output styled_output.jpg
+                    curl -X POST http://172.22.0.2:5001/styleTransfer -F "image=@image.jpg" --output styled_output.jpg
                     '''
                 }
             }
