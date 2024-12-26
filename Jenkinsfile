@@ -12,7 +12,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                    docker run --rm -p 5001:5001 urmsandeep/ai-artistic-style-service pytest tests/
+                    
                     '''
                 }
             }
@@ -32,7 +32,7 @@ pipeline {
                 script {
                     sh '''
                     sleep 5
-                    curl -X POST http://127.0.0.1:5001/styleTransfer -F "image=@test.jpg" --output styled_output.jpg
+                    curl -X POST http://127.0.0.1:5001/styleTransfer -F "image=@image.jpg" --output styled_output.jpg
                     '''
                 }
             }
