@@ -27,12 +27,13 @@ pipeline {
                 }
             }
         }
-        stage('Verify Deployment') {
+        stage('Download Image and Verify Deployment') {
             steps {
                 script {
                     sh '''
                     sleep 5
-                    curl -X POST http://172.22.0.2:5001/styleTransfer -F "image=@image.jpg" --output styled_output.jpg
+		    curl -o image.jpg  https://lorempixel.com/1280/320/nature/1/
+                    curl -X POST http://127.0.0.1:5001/styleTransfer -F "image=@image.jpg" --output styled_output.jpg
                     '''
                 }
             }
